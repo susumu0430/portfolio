@@ -29,13 +29,13 @@ export default function Footer() {
             className="text-[11px] tracking-[0.5em] uppercase"
             style={{ color: "#C9A84C", fontFamily: "var(--font-inter), sans-serif" }}
           >
-            Zero Origin
+            SusumuMind
           </p>
           <p
             className="text-[9px] tracking-[0.25em]"
             style={{ color: "#333333", fontFamily: "var(--font-inter), sans-serif" }}
           >
-            © 2026 Zero Origin. All rights reserved.
+            © 2026 SusumuMind. All rights reserved.
           </p>
         </div>
 

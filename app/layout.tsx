@@ -14,7 +14,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "ZERO ORIGIN — susumu",
+  title: "SusumuMind — susumu",
   description: "AI Imagery × Structured Thinking",
 };
 

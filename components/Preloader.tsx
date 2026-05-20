@@ -86,7 +86,7 @@ export default function Preloader({ onComplete }: { onComplete: () => void }) {
             fontFamily: "var(--font-inter), sans-serif",
           }}
         >
-          Zero Origin
+          SusumuMind
         </p>
         <p
           className="text-[9px] tracking-[0.3em] uppercase"

@@ -32,7 +32,7 @@ export default function Nav() {
         className="text-[11px] tracking-[0.5em] uppercase"
         style={{ color: "#C9A84C", fontFamily: "var(--font-inter), sans-serif" }}
       >
-        Zero Origin
+        SusumuMind
       </a>
 
       <nav className="hidden md:flex items-center gap-10">

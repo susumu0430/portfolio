@@ -59,15 +59,6 @@ function ImageCard({ src, alt }: { src: string; alt: string }) {
             "linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 60%)",
         }}
       />
-      {/* Label on hover */}
-      <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-400">
-        <p
-          className="text-[9px] tracking-[0.4em] uppercase"
-          style={{ color: "#C9A84C", fontFamily: "var(--font-inter), sans-serif" }}
-        >
-          {alt}
-        </p>
-      </div>
     </div>
   );
 }
