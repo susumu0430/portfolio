@@ -35,7 +35,7 @@ export default function Links() {
   return (
     <section
       id="links"
-      className="pt-20 pb-20 md:pt-32 md:pb-32"
+      className="py-20 md:py-32"
       style={{
         backgroundColor: "#0D0D0D",
         paddingLeft: "clamp(1.5rem, 5vw, 4rem)",
