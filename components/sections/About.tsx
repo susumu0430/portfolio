@@ -87,7 +87,7 @@ export default function About() {
         {/* Bio */}
         <FadeIn delay={0.1}>
           <p
-            className="leading-loose mb-20 max-w-2xl"
+            className="leading-loose mb-20 md:mb-32 max-w-2xl"
             style={{
               color: "#888888",
               fontFamily: "var(--font-inter), sans-serif",
