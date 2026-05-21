@@ -100,7 +100,7 @@ export default function About() {
         </FadeIn>
 
         {/* Strength cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-px" style={{ backgroundColor: "#1E1E1E" }}>
+        <div className="about-cards grid grid-cols-1 md:grid-cols-3 gap-px" style={{ backgroundColor: "#1E1E1E" }}>
           {strengths.map((s, i) => (
             <FadeIn key={s.label} delay={0.12 + i * 0.08}>
               <div

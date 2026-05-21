@@ -48,6 +48,13 @@ body {
   background: #c9a84c;
 }
 
+/* About: bio → cards gap on PC */
+@media (min-width: 768px) {
+  .about-cards {
+    margin-top: 2rem;
+  }
+}
+
 /* Responsive section padding — using plain CSS to avoid Tailwind scan issues */
 .section-py {
   padding-top: 5rem;
