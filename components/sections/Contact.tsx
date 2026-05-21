@@ -34,10 +34,9 @@ export default function Contact() {
   return (
     <section
       id="contact"
+      className="pt-20 pb-20 md:pt-32 md:pb-32"
       style={{
         backgroundColor: "#0A0A0A",
-        paddingTop: "8rem",
-        paddingBottom: "8rem",
         paddingLeft: "clamp(1.5rem, 5vw, 4rem)",
         paddingRight: "clamp(1.5rem, 5vw, 4rem)",
       }}

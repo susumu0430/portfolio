@@ -67,10 +67,9 @@ export default function Gallery() {
   return (
     <section
       id="gallery"
+      className="pt-16 pb-20 md:pt-16 md:pb-32"
       style={{
         backgroundColor: "#0A0A0A",
-        paddingTop: "4rem",
-        paddingBottom: "8rem",
         paddingLeft: "clamp(1.5rem, 5vw, 4rem)",
         paddingRight: "clamp(1.5rem, 5vw, 4rem)",
       }}
