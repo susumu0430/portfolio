@@ -47,3 +47,26 @@ body {
 ::-webkit-scrollbar-thumb {
   background: #c9a84c;
 }
+
+/* Responsive section padding — using plain CSS to avoid Tailwind scan issues */
+.section-py {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+@media (min-width: 768px) {
+  .section-py {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+}
+
+.section-py-gallery {
+  padding-top: 4rem;
+  padding-bottom: 5rem;
+}
+@media (min-width: 768px) {
+  .section-py-gallery {
+    padding-top: 4rem;
+    padding-bottom: 8rem;
+  }
+}

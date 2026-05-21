@@ -49,7 +49,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="py-20 md:py-32"
+      className="section-py"
       style={{
         backgroundColor: "#0A0A0A",
         paddingLeft: "clamp(1.5rem, 5vw, 4rem)",
