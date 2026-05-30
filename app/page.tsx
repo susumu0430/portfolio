@@ -7,6 +7,7 @@ import Nav from "@/components/Nav";
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
 import Gallery from "@/components/sections/Gallery";
+import Tools from "@/components/sections/Tools";
 import Links from "@/components/sections/Links";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/sections/Footer";
@@ -29,6 +30,7 @@ export default function Home() {
             <Hero />
             <About />
             <Gallery />
+            <Tools />
             <Links />
             <Contact />
           </main>

@@ -29,6 +29,13 @@ export const links: LinkItem[] = [
     status: "active",
   },
   {
+    platform: "YouTube",
+    handle: "@susumu0430",
+    description: "susumuMind チャンネル",
+    url: "https://www.youtube.com/@susumu0430",
+    status: "active",
+  },
+  {
     platform: "Instagram",
     handle: "",
     description: "近日公開",
