@@ -84,6 +84,24 @@ export default function About() {
           </h2>
         </FadeIn>
 
+        {/* 肩書き */}
+        <FadeIn delay={0.08}>
+          <p
+            className="text-[13px] tracking-[0.1em]"
+            style={{
+              fontFamily: "var(--font-inter), sans-serif",
+              marginBottom: "1.25rem",
+            }}
+          >
+            <span style={{ color: "#F5F0E8" }}>susumu</span>
+            <span style={{ color: "#8A8A8A" }}>
+              {" "}—{" "}
+              <span style={{ whiteSpace: "nowrap" }}>AI画像クリエイター</span> /{" "}
+              <span style={{ whiteSpace: "nowrap" }}>思考法ライター</span>
+            </span>
+          </p>
+        </FadeIn>
+
         {/* Bio */}
         <FadeIn delay={0.1}>
           <p
@@ -95,7 +113,7 @@ export default function About() {
               lineHeight: 2,
             }}
           >
-            思考法と生成AIを掛け合わせ、どちらにもない価値を生み出す。心理学と習慣設計を土台に、新しい表現を追求しています。
+            思考法と生成AIを掛け合わせ、どちらにもない価値を生み出す。心理学と習慣設計を土台に、新しい表現を追求しています。AI画像制作・記事執筆・思考整理のサポートなど、お仕事のご依頼を承っています。
           </p>
         </FadeIn>
 
@@ -127,7 +145,7 @@ export default function About() {
                 </div>
                 <p
                   className="text-sm leading-relaxed"
-                  style={{ color: "#666666", fontFamily: "var(--font-inter), sans-serif" }}
+                  style={{ color: "#8A8A8A", fontFamily: "var(--font-inter), sans-serif" }}
                 >
                   {s.desc}
                 </p>

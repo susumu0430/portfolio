@@ -14,12 +14,26 @@ export default function Hero() {
       className="relative h-screen flex items-center overflow-hidden"
       style={{ backgroundColor: "#0A0A0A" }}
     >
+      {/* 実h1はスクリーンリーダー・SEO用に1つだけ（視覚上は装飾語をpで表示） */}
+      <h1
+        style={{
+          position: "absolute",
+          width: 1,
+          height: 1,
+          overflow: "hidden",
+          clip: "rect(0 0 0 0)",
+          whiteSpace: "nowrap",
+        }}
+      >
+        SusumuMind — AI Imagery × Structured Thinking
+      </h1>
+
       {/* ── Mobile layout (< 768px) ── */}
       <div className="flex md:hidden flex-col items-center justify-center w-full gap-8 px-6">
         {/* Left words */}
         <div className="flex flex-col items-center">
           {leftWords.map((word, i) => (
-            <motion.h1
+            <motion.p
               key={word}
               className="leading-none tracking-tight"
               style={{
@@ -33,7 +47,7 @@ export default function Hero() {
               transition={{ duration: 1.0, delay: 0.1 + i * 0.14, ease }}
             >
               {word}
-            </motion.h1>
+            </motion.p>
           ))}
           <motion.p
             className="mt-3 text-[8px] tracking-[0.4em] uppercase"
@@ -76,7 +90,7 @@ export default function Hero() {
         {/* Right words */}
         <div className="flex flex-col items-center">
           {rightWords.map((word, i) => (
-            <motion.h1
+            <motion.p
               key={word}
               className="leading-none tracking-tight"
               style={{
@@ -90,7 +104,7 @@ export default function Hero() {
               transition={{ duration: 1.0, delay: 0.15 + i * 0.14, ease }}
             >
               {word}
-            </motion.h1>
+            </motion.p>
           ))}
           <motion.p
             className="mt-3 text-[8px] tracking-[0.4em] uppercase"
@@ -102,6 +116,17 @@ export default function Hero() {
             AI Imagery
           </motion.p>
         </div>
+
+        {/* JP value proposition */}
+        <motion.p
+          className="text-[10px] tracking-[0.18em] text-center"
+          style={{ color: "#8A8A8A", fontFamily: "var(--font-inter), sans-serif" }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.95, ease }}
+        >
+          思考法 × AI画像 — 伝わるコンテンツをつくる
+        </motion.p>
       </div>
 
       {/* ── Desktop layout (≥ 768px) ── */}
@@ -111,7 +136,7 @@ export default function Hero() {
         style={{ paddingRight: "clamp(3rem, 8vw, 10rem)" }}
       >
         {leftWords.map((word, i) => (
-          <motion.h1
+          <motion.p
             key={word}
             className="leading-none tracking-tight"
             style={{
@@ -125,7 +150,7 @@ export default function Hero() {
             transition={{ duration: 1.0, delay: 0.1 + i * 0.14, ease }}
           >
             {word}
-          </motion.h1>
+          </motion.p>
         ))}
         <motion.p
           className="mt-5 text-[9px] tracking-[0.4em] uppercase"
@@ -174,7 +199,7 @@ export default function Hero() {
         style={{ paddingLeft: "clamp(3rem, 8vw, 10rem)" }}
       >
         {rightWords.map((word, i) => (
-          <motion.h1
+          <motion.p
             key={word}
             className="leading-none tracking-tight"
             style={{
@@ -188,7 +213,7 @@ export default function Hero() {
             transition={{ duration: 1.0, delay: 0.15 + i * 0.14, ease }}
           >
             {word}
-          </motion.h1>
+          </motion.p>
         ))}
         <motion.p
           className="mt-5 text-[9px] tracking-[0.4em] uppercase"
@@ -203,6 +228,21 @@ export default function Hero() {
           AI Imagery
         </motion.p>
       </div>
+
+      {/* JP value proposition — desktop */}
+      <motion.p
+        className="hidden md:block absolute left-1/2 -translate-x-1/2 text-[11px] tracking-[0.18em]"
+        style={{
+          bottom: "12%",
+          color: "#8A8A8A",
+          fontFamily: "var(--font-inter), sans-serif",
+        }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 1.0, ease }}
+      >
+        思考法 × AI画像 — 伝わるコンテンツをつくる
+      </motion.p>
 
       {/* Scroll indicator */}
       <motion.div

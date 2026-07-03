@@ -11,6 +11,11 @@ const tools = [
     name: "Higgsfield AI",
     usage: "リアル系AI画像生成",
   },
+  {
+    label: "Image Generation",
+    name: "GPT Image",
+    usage: "キャラクター画像の生成・編集",
+  },
 ];
 
 function FadeIn({
@@ -56,42 +61,43 @@ export default function Tools() {
           </p>
         </FadeIn>
 
-        <div style={{ maxWidth: "380px" }}>
-          <div className="gap-px" style={{ backgroundColor: "#1E1E1E" }}>
-            {tools.map((tool, i) => (
-              <FadeIn key={tool.name} delay={0.1 + i * 0.08}>
-                <div
-                  className="p-8 flex flex-col gap-4"
-                  style={{ backgroundColor: "#0A0A0A" }}
-                >
-                  <div className="flex flex-col gap-1">
-                    <p
-                      className="text-[9px] tracking-[0.4em] uppercase"
-                      style={{ color: "#C9A84C", fontFamily: "var(--font-inter), sans-serif" }}
-                    >
-                      {tool.label}
-                    </p>
-                    <p
-                      className="text-lg"
-                      style={{
-                        color: "#F5F0E8",
-                        fontFamily: "var(--font-cormorant), serif",
-                        fontWeight: 400,
-                      }}
-                    >
-                      {tool.name}
-                    </p>
-                  </div>
+        <div
+          className="grid grid-cols-1 md:grid-cols-2 gap-px"
+          style={{ backgroundColor: "#1E1E1E", maxWidth: "800px" }}
+        >
+          {tools.map((tool, i) => (
+            <FadeIn key={tool.name} delay={0.1 + i * 0.08}>
+              <div
+                className="p-8 flex flex-col gap-4 h-full"
+                style={{ backgroundColor: "#0A0A0A" }}
+              >
+                <div className="flex flex-col gap-1">
                   <p
-                    className="text-sm leading-relaxed"
-                    style={{ color: "#666666", fontFamily: "var(--font-inter), sans-serif" }}
+                    className="text-[9px] tracking-[0.4em] uppercase"
+                    style={{ color: "#C9A84C", fontFamily: "var(--font-inter), sans-serif" }}
                   >
-                    {tool.usage}
+                    {tool.label}
+                  </p>
+                  <p
+                    className="text-lg"
+                    style={{
+                      color: "#F5F0E8",
+                      fontFamily: "var(--font-cormorant), serif",
+                      fontWeight: 400,
+                    }}
+                  >
+                    {tool.name}
                   </p>
                 </div>
-              </FadeIn>
-            ))}
-          </div>
+                <p
+                  className="text-sm leading-relaxed"
+                  style={{ color: "#8A8A8A", fontFamily: "var(--font-inter), sans-serif" }}
+                >
+                  {tool.usage}
+                </p>
+              </div>
+            </FadeIn>
+          ))}
         </div>
       </div>
     </section>
