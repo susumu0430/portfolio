@@ -10,9 +10,9 @@ export default function Preloader({ onComplete }: { onComplete: () => void }) {
 
   useEffect(() => {
     const timers = [
-      setTimeout(() => setPhase(1), 400),
-      setTimeout(() => setPhase(2), 1700),
-      setTimeout(() => onComplete(), 3000),
+      setTimeout(() => setPhase(1), 200),
+      setTimeout(() => setPhase(2), 800),
+      setTimeout(() => onComplete(), 1500),
     ];
     return () => timers.forEach(clearTimeout);
   }, [onComplete]);
@@ -34,7 +34,7 @@ export default function Preloader({ onComplete }: { onComplete: () => void }) {
         }}
         initial={{ scaleX: 0 }}
         animate={{ scaleX: phase >= 1 ? 1 : 0 }}
-        transition={{ duration: 1.1, ease }}
+        transition={{ duration: 0.6, ease }}
       />
 
       {/* Right line — grows from center-right outward */}
@@ -48,7 +48,7 @@ export default function Preloader({ onComplete }: { onComplete: () => void }) {
         }}
         initial={{ scaleX: 0 }}
         animate={{ scaleX: phase >= 1 ? 1 : 0 }}
-        transition={{ duration: 1.1, ease }}
+        transition={{ duration: 0.6, ease }}
       />
 
       {/* Center dot — appears at intersection */}
@@ -66,7 +66,7 @@ export default function Preloader({ onComplete }: { onComplete: () => void }) {
           scale: phase >= 1 ? 1 : 0,
           opacity: phase >= 1 ? 1 : 0,
         }}
-        transition={{ duration: 0.3, delay: 0.85 }}
+        transition={{ duration: 0.3, delay: 0.45 }}
       />
 
       {/* Logo + tagline */}
@@ -77,7 +77,7 @@ export default function Preloader({ onComplete }: { onComplete: () => void }) {
           opacity: phase >= 2 ? 1 : 0,
           y: phase >= 2 ? 0 : 14,
         }}
-        transition={{ duration: 0.7, ease }}
+        transition={{ duration: 0.5, ease }}
       >
         <p
           className="text-[11px] tracking-[0.55em] uppercase"

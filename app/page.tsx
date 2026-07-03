@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import Preloader from "@/components/Preloader";
 import Nav from "@/components/Nav";
@@ -14,14 +14,31 @@ import Footer from "@/components/sections/Footer";
 
 export default function Home() {
   const [preloaderDone, setPreloaderDone] = useState(false);
+  const [skipped, setSkipped] = useState(false);
+
+  // セッション中の再訪はプリローダーをスキップ
+  // （exitアニメーションを介さずAnimatePresenceごと外す）
+  useEffect(() => {
+    if (sessionStorage.getItem("preloader-shown")) {
+      setSkipped(true);
+      setPreloaderDone(true);
+    }
+  }, []);
+
+  const handlePreloaderComplete = () => {
+    sessionStorage.setItem("preloader-shown", "1");
+    setPreloaderDone(true);
+  };
 
   return (
     <>
-      <AnimatePresence>
-        {!preloaderDone && (
-          <Preloader onComplete={() => setPreloaderDone(true)} />
-        )}
-      </AnimatePresence>
+      {!skipped && (
+        <AnimatePresence>
+          {!preloaderDone && (
+            <Preloader onComplete={handlePreloaderComplete} />
+          )}
+        </AnimatePresence>
+      )}
 
       {preloaderDone && (
         <>
