@@ -3,6 +3,7 @@
 const navLinks = [
   { label: "About", href: "#about" },
   { label: "Gallery", href: "#gallery" },
+  { label: "Tools", href: "#tools" },
   { label: "Links", href: "#links" },
   { label: "Contact", href: "#contact" },
 ];
@@ -33,7 +34,7 @@ export default function Footer() {
           </p>
           <p
             className="text-[9px] tracking-[0.25em]"
-            style={{ color: "#333333", fontFamily: "var(--font-inter), sans-serif" }}
+            style={{ color: "#777777", fontFamily: "var(--font-inter), sans-serif" }}
           >
             © 2026 SusumuMind. All rights reserved.
           </p>
@@ -45,12 +46,12 @@ export default function Footer() {
               key={link.href}
               href={link.href}
               className="text-[9px] tracking-[0.3em] uppercase transition-colors duration-300"
-              style={{ color: "#333333", fontFamily: "var(--font-inter), sans-serif" }}
+              style={{ color: "#777777", fontFamily: "var(--font-inter), sans-serif" }}
               onMouseEnter={(e) => {
-                (e.target as HTMLAnchorElement).style.color = "#666666";
+                (e.target as HTMLAnchorElement).style.color = "#F5F0E8";
               }}
               onMouseLeave={(e) => {
-                (e.target as HTMLAnchorElement).style.color = "#333333";
+                (e.target as HTMLAnchorElement).style.color = "#777777";
               }}
             >
               {link.label}
