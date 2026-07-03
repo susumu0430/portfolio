@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
+import { AnimatePresence, motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 
 const ease = [0.76, 0, 0.24, 1] as [number, number, number, number];
@@ -168,7 +168,18 @@ export default function Contact() {
                 className="text-sm transition-transform duration-300 group-hover:translate-x-1"
                 style={{ color: "#C9A84C", display: "inline-block", whiteSpace: "nowrap" }}
               >
-                {copied ? "Copied ✓" : "→"}
+                <AnimatePresence mode="wait" initial={false}>
+                  <motion.span
+                    key={copied ? "copied" : "arrow"}
+                    style={{ display: "inline-block" }}
+                    initial={{ opacity: 0, y: 4 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -4 }}
+                    transition={{ duration: 0.2, ease }}
+                  >
+                    {copied ? "Copied ✓" : "→"}
+                  </motion.span>
+                </AnimatePresence>
               </span>
             </button>
           </FadeIn>

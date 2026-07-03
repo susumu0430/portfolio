@@ -1,5 +1,10 @@
 "use client";
 
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+
+const ease = [0.76, 0, 0.24, 1] as [number, number, number, number];
+
 const navLinks = [
   { label: "About", href: "#about" },
   { label: "Gallery", href: "#gallery" },
@@ -9,21 +14,63 @@ const navLinks = [
 ];
 
 export default function Footer() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-40px" });
+
   return (
     <footer
-      className="border-t"
+      ref={ref}
       style={{
         backgroundColor: "#0A0A0A",
-        borderColor: "#1E1E1E",
         paddingTop: "3rem",
         paddingBottom: "3rem",
         paddingLeft: "clamp(1.5rem, 5vw, 4rem)",
         paddingRight: "clamp(1.5rem, 5vw, 4rem)",
       }}
     >
+      {/* ×回収モチーフ — Preloaderの「中央から開く」に対し、ここでは外から中央へ集まって閉じる */}
       <div
+        className="flex items-center"
+        style={{
+          maxWidth: "1200px",
+          marginLeft: "auto",
+          marginRight: "auto",
+          width: "100%",
+          gap: "1rem",
+          marginBottom: "2.75rem",
+        }}
+      >
+        <motion.div
+          className="flex-1 h-px"
+          style={{ backgroundColor: "#C9A84C", transformOrigin: "left", opacity: 0.7 }}
+          initial={{ scaleX: 0 }}
+          animate={isInView ? { scaleX: 1 } : {}}
+          transition={{ duration: 0.9, ease }}
+        />
+        <motion.span
+          className="text-sm select-none"
+          style={{ color: "#C9A84C", fontFamily: "var(--font-inter), sans-serif" }}
+          initial={{ opacity: 0, scale: 0.6 }}
+          animate={isInView ? { opacity: 1, scale: 1 } : {}}
+          transition={{ duration: 0.4, delay: 0.55, ease }}
+        >
+          ×
+        </motion.span>
+        <motion.div
+          className="flex-1 h-px"
+          style={{ backgroundColor: "#C9A84C", transformOrigin: "right", opacity: 0.7 }}
+          initial={{ scaleX: 0 }}
+          animate={isInView ? { scaleX: 1 } : {}}
+          transition={{ duration: 0.9, ease }}
+        />
+      </div>
+
+      <motion.div
         className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8"
         style={{ maxWidth: "1200px", marginLeft: "auto", marginRight: "auto", width: "100%" }}
+        initial={{ opacity: 0, y: 20 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.75, delay: 0.35, ease }}
       >
         <div className="flex flex-col gap-2">
           <p
@@ -58,7 +105,7 @@ export default function Footer() {
             </a>
           ))}
         </nav>
-      </div>
+      </motion.div>
     </footer>
   );
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, MotionConfig } from "framer-motion";
 import Preloader from "@/components/Preloader";
 import Nav from "@/components/Nav";
 import Hero from "@/components/sections/Hero";
@@ -31,7 +31,8 @@ export default function Home() {
   };
 
   return (
-    <>
+    // OSの「視差効果を減らす」設定を尊重（位置移動系アニメーションを自動で無効化）
+    <MotionConfig reducedMotion="user">
       {!skipped && (
         <AnimatePresence>
           {!preloaderDone && (
@@ -54,6 +55,6 @@ export default function Home() {
           <Footer />
         </>
       )}
-    </>
+    </MotionConfig>
   );
 }
