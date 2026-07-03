@@ -38,6 +38,12 @@ body {
   color: #0a0a0a;
 }
 
+/* キーボード操作時のフォーカスリング（マウスクリックでは出ない） */
+:focus-visible {
+  outline: 2px solid #c9a84c;
+  outline-offset: 3px;
+}
+
 ::-webkit-scrollbar {
   width: 3px;
 }
@@ -52,6 +58,18 @@ body {
 @media (min-width: 768px) {
   .about-cards {
     margin-top: 2rem;
+  }
+}
+
+/* Gallery: header (label/title/note) → image grid gap.
+   NOTE: Tailwind の margin/padding ユーティリティは上の * リセット
+   （レイヤー外CSSがレイヤー内ユーティリティに勝つ）で無効化されるため plain CSS */
+.gallery-header {
+  margin-bottom: 2.5rem;
+}
+@media (min-width: 768px) {
+  .gallery-header {
+    margin-bottom: 4rem;
   }
 }
 

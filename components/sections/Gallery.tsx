@@ -8,12 +8,12 @@ const ease = [0.76, 0, 0.24, 1] as [number, number, number, number];
 
 // kairos_06 (顔アップ) を下段中央 (index 4) に配置
 const images = [
-  { src: "/gallery/kairos_01.png",  alt: "Kairos 01" },
-  { src: "/gallery/kairos_02.png",  alt: "Kairos 02" },
-  { src: "/gallery/kairos_03.jpeg", alt: "Kairos 03" },
-  { src: "/gallery/kairos_04.png",  alt: "Kairos 04" },
-  { src: "/gallery/kairos_06.png",  alt: "Kairos 06" }, // 下段中央
-  { src: "/gallery/kairos_05.png",  alt: "Kairos 05" },
+  { src: "/gallery/kairos_01.jpg", alt: "ピンクヘアの女性がピースサインをする街角のリアル系AIポートレート" },
+  { src: "/gallery/kairos_02.jpg", alt: "青い背景で頬に手を添えた女性のリアル系AIポートレート（顔アップ)" },
+  { src: "/gallery/kairos_03.jpg", alt: "制服姿の女性が壁の前に立つストリート調のリアル系AIポートレート" },
+  { src: "/gallery/kairos_04.jpg", alt: "桜の下でポーズをとるセーラー服の女性のリアル系AIポートレート" },
+  { src: "/gallery/kairos_06.jpg", alt: "ミントのカーディガンと白いスカートの女性のリアル系AIポートレート" }, // 下段中央
+  { src: "/gallery/kairos_05.jpg", alt: "白いシャツで椅子に座る女性のスタジオ調リアル系AIポートレート" },
 ];
 
 function FadeIn({
@@ -41,7 +41,7 @@ function FadeIn({
 function ImageCard({ src, alt }: { src: string; alt: string }) {
   return (
     <div
-      className="overflow-hidden group cursor-pointer"
+      className="overflow-hidden"
       style={{ position: "relative", aspectRatio: "3/4" }}
     >
       <Image
@@ -50,14 +50,6 @@ function ImageCard({ src, alt }: { src: string; alt: string }) {
         fill
         sizes="(max-width: 768px) 50vw, 33vw"
         style={{ objectFit: "cover", objectPosition: "center top" }}
-      />
-      {/* Hover overlay */}
-      <div
-        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-        style={{
-          background:
-            "linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 60%)",
-        }}
       />
     </div>
   );
@@ -76,7 +68,7 @@ export default function Gallery() {
     >
       <div style={{ maxWidth: "1200px", marginLeft: "auto", marginRight: "auto", width: "100%" }}>
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+        <div className="gallery-header flex flex-col md:flex-row md:items-end md:justify-between gap-6">
           <div>
             <FadeIn>
               <p
@@ -103,9 +95,9 @@ export default function Gallery() {
           <FadeIn delay={0.1}>
             <p
               className="text-xs"
-              style={{ color: "#555555", fontFamily: "var(--font-inter), sans-serif" }}
+              style={{ color: "#8A8A8A", fontFamily: "var(--font-inter), sans-serif" }}
             >
-              リアル系作品はXにて公開
+              最新作はXで更新中
             </p>
           </FadeIn>
         </div>
@@ -123,7 +115,7 @@ export default function Gallery() {
         <FadeIn delay={0.15}>
           <div className="mt-12 flex justify-center">
             <a
-              href="https://x.com/"
+              href="https://x.com/SusumuMind"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 px-8 py-4 border transition-colors duration-300 text-[10px] tracking-[0.4em] uppercase"
