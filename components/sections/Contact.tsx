@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 const ease = [0.76, 0, 0.24, 1] as [number, number, number, number];
 
@@ -30,7 +30,41 @@ function FadeIn({
 const EMAIL = "susumu01250430@gmail.com";
 const X_URL = "https://x.com/SusumuMind";
 
+const flowSteps = ["ご連絡", "ヒアリング（チャット）", "制作・納品"];
+
 export default function Contact() {
+  const [copied, setCopied] = useState(false);
+
+  const copyEmail = async () => {
+    const showCopied = () => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    };
+    try {
+      await navigator.clipboard.writeText(EMAIL);
+      showCopied();
+    } catch {
+      // Clipboard APIが使えない環境向けの旧式コピー
+      const ta = document.createElement("textarea");
+      ta.value = EMAIL;
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        if (document.execCommand("copy")) {
+          showCopied();
+        } else {
+          window.location.href = `mailto:${EMAIL}`;
+        }
+      } catch {
+        window.location.href = `mailto:${EMAIL}`;
+      } finally {
+        document.body.removeChild(ta);
+      }
+    }
+  };
+
   return (
     <section
       id="contact"
@@ -68,23 +102,52 @@ export default function Contact() {
         <FadeIn delay={0.1}>
           <p
             className="mb-14 text-sm leading-relaxed"
-            style={{ color: "#666666", fontFamily: "var(--font-inter), sans-serif", lineHeight: 2 }}
+            style={{ color: "#8A8A8A", fontFamily: "var(--font-inter), sans-serif", lineHeight: 2 }}
           >
-            お仕事のご依頼・コラボレーション・その他お問い合わせはこちらから。
+            AI画像制作・記事執筆・思考整理サポートなど、お仕事のご依頼・コラボレーション・その他お問い合わせはこちらから。
+            <br />
+            ご連絡はメール・チャットでのやり取りを中心に対応しています。
           </p>
+        </FadeIn>
+
+        {/* ご依頼の流れ */}
+        <FadeIn delay={0.11}>
+          <div
+            className="flex flex-wrap items-center"
+            style={{ marginBottom: "3rem", gap: "0.75rem" }}
+          >
+            {flowSteps.map((step, i) => (
+              <span key={step} className="flex items-center" style={{ gap: "0.75rem" }}>
+                <span
+                  className="text-xs"
+                  style={{ fontFamily: "var(--font-inter), sans-serif" }}
+                >
+                  <span style={{ color: "#C9A84C" }}>{`0${i + 1} `}</span>
+                  <span style={{ color: "#8A8A8A" }}>{step}</span>
+                </span>
+                {i < flowSteps.length - 1 && (
+                  <span className="text-xs" style={{ color: "#444444" }}>
+                    →
+                  </span>
+                )}
+              </span>
+            ))}
+          </div>
         </FadeIn>
 
         <div className="flex flex-col gap-4">
           <FadeIn delay={0.12}>
-            <a
-              href={`mailto:${EMAIL}`}
-              className="flex items-center justify-between px-6 py-5 border group transition-all duration-300"
-              style={{ borderColor: "#1E1E1E" }}
+            <button
+              type="button"
+              onClick={copyEmail}
+              aria-label="メールアドレスをコピー"
+              className="w-full flex items-center justify-between px-6 py-5 border group transition-all duration-300 text-left cursor-pointer"
+              style={{ borderColor: "#1E1E1E", backgroundColor: "transparent" }}
               onMouseEnter={(e) => {
-                (e.currentTarget as HTMLAnchorElement).style.borderColor = "#C9A84C";
+                (e.currentTarget as HTMLButtonElement).style.borderColor = "#C9A84C";
               }}
               onMouseLeave={(e) => {
-                (e.currentTarget as HTMLAnchorElement).style.borderColor = "#1E1E1E";
+                (e.currentTarget as HTMLButtonElement).style.borderColor = "#1E1E1E";
               }}
             >
               <div className="flex flex-col gap-1">
@@ -92,7 +155,7 @@ export default function Contact() {
                   className="text-[9px] tracking-[0.4em] uppercase"
                   style={{ color: "#555555", fontFamily: "var(--font-inter), sans-serif" }}
                 >
-                  Email
+                  Email — クリックでコピー
                 </p>
                 <p
                   className="text-sm"
@@ -103,11 +166,11 @@ export default function Contact() {
               </div>
               <span
                 className="text-sm transition-transform duration-300 group-hover:translate-x-1"
-                style={{ color: "#C9A84C", display: "inline-block" }}
+                style={{ color: "#C9A84C", display: "inline-block", whiteSpace: "nowrap" }}
               >
-                →
+                {copied ? "Copied ✓" : "→"}
               </span>
-            </a>
+            </button>
           </FadeIn>
 
           <FadeIn delay={0.16}>
