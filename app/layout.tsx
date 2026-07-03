@@ -14,8 +14,23 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "SusumuMind — susumu",
-  description: "AI Imagery × Structured Thinking",
+  title: "SusumuMind — AI Imagery × Structured Thinking",
+  description:
+    "AI Imagery × Structured Thinking — 思考法と生成AIを掛け合わせ、どちらにもない価値を生み出すsusumuのポートフォリオ",
+  openGraph: {
+    title: "SusumuMind — Structured Mind × Infinite Vision",
+    description:
+      "AI Imagery × Structured Thinking — 思考法と生成AIを掛け合わせるポートフォリオ",
+    siteName: "SusumuMind",
+    type: "website",
+    locale: "ja_JP",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SusumuMind — Structured Mind × Infinite Vision",
+    description:
+      "AI Imagery × Structured Thinking — 思考法と生成AIを掛け合わせるポートフォリオ",
+  },
 };
 
 export default function RootLayout({
