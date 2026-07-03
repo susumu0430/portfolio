@@ -1,6 +1,12 @@
 "use client";
 
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useMotionTemplate,
+  AnimatePresence,
+} from "framer-motion";
 import { useState, useEffect } from "react";
 
 const navLinks = [
@@ -17,6 +23,10 @@ export default function Nav() {
   const { scrollY } = useScroll();
   const borderOpacity = useTransform(scrollY, [0, 80], [0, 1]);
   const bgOpacity = useTransform(scrollY, [0, 80], [0, 0.85]);
+  // MotionValueはテンプレート文字列に直接埋め込むと初回描画で固定される。
+  // useMotionTemplateで包むとスクロールに追従して更新される
+  const headerBg = useMotionTemplate`rgba(10, 10, 10, ${bgOpacity})`;
+  const headerBorder = useMotionTemplate`1px solid rgba(30, 30, 30, ${borderOpacity})`;
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -31,10 +41,8 @@ export default function Nav() {
       <motion.header
         className="fixed top-0 left-0 right-0 z-40 px-6 md:px-12 py-4 flex items-center justify-between backdrop-blur-sm"
         style={{
-          backgroundColor: bgOpacity.get() > 0
-            ? `rgba(10,10,10,${bgOpacity})`
-            : "transparent",
-          borderBottom: `1px solid rgba(30,30,30,${borderOpacity})`,
+          backgroundColor: headerBg,
+          borderBottom: headerBorder,
         }}
         initial={{ opacity: 0, y: -12 }}
         animate={{ opacity: 1, y: 0 }}
