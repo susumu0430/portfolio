@@ -14,6 +14,11 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  // 本番URLを明示（OGP画像などの相対パスをどの環境でも絶対URLに解決させる）
+  metadataBase: new URL("https://susumu-portfolio.vercel.app"),
+  alternates: {
+    canonical: "/",
+  },
   title: "SusumuMind — AI Imagery × Structured Thinking",
   description:
     "AI Imagery × Structured Thinking — 思考法と生成AIを掛け合わせ、どちらにもない価値を生み出すsusumuのポートフォリオ",
@@ -24,6 +29,7 @@ export const metadata: Metadata = {
     siteName: "SusumuMind",
     type: "website",
     locale: "ja_JP",
+    url: "/",
   },
   twitter: {
     card: "summary_large_image",
